@@ -1,0 +1,11 @@
+.idea/
+*.bak
+.*.swp
+*~
+__pycache__/
+dist/
+*.log
+*.png
+*.csv
+*.pdf
+*.egg-info

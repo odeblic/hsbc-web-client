@@ -1,0 +1,8 @@
+[DEFAULT]
+login:      hsbc_user
+password:   password123
+country:    hongkong
+gui:        False
+verbose:    True
+maximized:  False
+hold:       False
