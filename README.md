@@ -141,6 +141,10 @@ hence this project...
 
 [Olivier de BLIC](mailto:odeblic@gmail.com)
 
+# Contributors
+
+[Andrew Lister](mailto:a.lister.hk@gmail.com)
+
 > "Please do not do shady things with my code.
 You must be the owner of the account you are using."
 
