@@ -16,7 +16,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent"
     ],
-    packages=find_packages(where='hsbc_web_client'),
+    packages=find_packages('hsbc_web_client'),
     install_requires=['selenium', 'webdriver-manager'],
     license='WTFPL',
     zip_safe=True,
