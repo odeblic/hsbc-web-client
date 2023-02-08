@@ -18,10 +18,10 @@ debug:
 
 clean:
 	# rm -fr /tmp/* > /dev/null 2>&1 ; true
-	rm -fr build dist HSBC_Web_Client.egg-info
-	rm -fr __pycache__ geckodriver.log
-	rm -f accounts-hk.png accounts-hk.pdf accounts-hk.csv
-	rm -f accounts-fr.png accounts-fr.pdf accounts-fr.csv
+	rm -fr build dist *.egg-info
+	rm -fr */__pycache__ */geckodriver.log
+	rm -f */accounts-hk.png */accounts-hk.pdf */accounts-hk.csv
+	rm -f */accounts-fr.png */accounts-fr.pdf */accounts-fr.csv
 
 install:
 	python3 setup.py install --prefix ~/.local
@@ -29,4 +29,10 @@ install:
 run:
 	@[ "$(HSBC_COUNTRY)" = hk -o "$(HSBC_COUNTRY)" = fr ] || (printf "HSBC_COUNTRY must be set to either 'hk' or 'fr'\n" && false)
 	python3 -m hsbc-web-client --$(HSBC_COUNTRY)
+
+sdist: clean
+	python setup.py sdist
+
+upload: clean sdist
+	twine upload -r local dist/*
 

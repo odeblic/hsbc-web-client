@@ -25,6 +25,30 @@ either in France or Hong Kong.
 
 ### Usage
 
+```bash
+usage: HSBC Web Client [-h] [--login LOGIN] [--password PASSWORD] [--gui]
+                       [--verbose] [--maximized] [--hold] (--hk | --fr)
+
+This script connects to the web interface of HSBC to access online banking
+services.
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --login LOGIN
+  --password PASSWORD
+  --gui                Display the GUI
+  --verbose            Show all log records
+  --maximized          Maximize the window of the browser
+  --hold               Do not leave the page after connection
+  --hk                 Select HSBC Hong Kong
+  --fr                 Select HSBC France
+
+Implemented for HK and FR.
+```
+
+On the first run using the `--gui` option is probably going to be necessary 
+so the browser can be trusted and/or a one time password (OTP) can be sent.
+
 You can simply run the program as follow:
 
 ```bash
@@ -33,7 +57,7 @@ python3 hsbc-web-client.py
 
 However, you might appreciate the provided Makefile to avoid repetitive work.
 
-You must first indicate your credentials in the file `credentials.make`:
+You must first indicate your credentials in the file `credentials.mk`:
 
 ```make
 # credentials for your account in Hong Kong
@@ -76,6 +100,11 @@ make install
 # cleanup the files produced by runs or builds
 make clean
 ```
+
+#### Using an ini configuration file
+
+There is also an example of using an ini file: `hsbc.ini.example`.  
+ou can look at `hsbc-web-client.py` for more details on how to use.
 
 # Disclaimer
 
