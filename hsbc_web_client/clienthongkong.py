@@ -10,6 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 
+
 class HSBCwebClientHK(HSBCwebClient):
     def __init__(self, *args, **kwargs):
         URL = 'https://www.hsbc.com.hk/ways-to-bank/internet'
@@ -51,7 +52,7 @@ class HSBCwebClientHK(HSBCwebClient):
         WebDriverWait(self._driver, 15).until(EC.presence_of_element_located((By.ID, "app-root")))
         self._logger.debug("found element: app-root")
 
-        time.sleep(5)
+        time.sleep(10)
         self._logger.debug("quick pause")
 
         if "Security code" in self._driver.title:
@@ -70,8 +71,7 @@ class HSBCwebClientHK(HSBCwebClient):
 
         self._logger.info("stage AUTHENTICATION")
 
-
-        time.sleep(2)
+        time.sleep(5)
         self._logger.debug("quick pause")
 
         actions = ActionChains(self._driver)
@@ -106,7 +106,6 @@ class HSBCwebClientHK(HSBCwebClient):
             self._logger.info(f'account number: {account_number}')
         except NoSuchElementException:
             self._logger.info("No account number on this account")
-            account_number = 0
 
         return account_number
 
@@ -122,7 +121,7 @@ class HSBCwebClientHK(HSBCwebClient):
             self._logger.info(f'No balance found for this account')
             balance = -9999999.00
 
-        return balance
+        return float(balance)
     def _get_account_currency(self, element):
         try:
             subelement = element.find_element(
@@ -131,7 +130,6 @@ class HSBCwebClientHK(HSBCwebClient):
             self._logger.info(f'account currency: {currency}')
         except NoSuchElementException:
             self._logger.info(f'No currency found for this account')
-            currency = None
 
         return currency
 
