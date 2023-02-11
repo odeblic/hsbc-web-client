@@ -21,6 +21,8 @@ class HSBCwebClient:
         self._login = login
         self._password = password
         self._logger = logging.getLogger('hsbc-web-client')
+        self.elements = []
+        self.accounts = []
 
     def launch(self, *, verbose=True, gui=True, maximized=True):
         if verbose:

@@ -1,11 +1,9 @@
 import os
 import time
 
-from clientbase import HSBCwebClient
+from hsbc_web_client.clientbase import HSBCwebClient
 
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
